@@ -1,0 +1,27 @@
+﻿<Project Sdk="Tizen.NET.Sdk/1.1.7">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>tizen90</TargetFramework>
+  </PropertyGroup>
+
+   <!--<PropertyGroup>
+    <FlutterModuleDir>../build/tizen/module</FlutterModuleDir>
+  </PropertyGroup>-->
+
+  <ItemGroup>
+    <PackageReference Include="Tizen.Flutter.Embedding" Version="1.1.0" />
+  </ItemGroup> 
+
+  <!--<ItemGroup>
+    <ProjectReference Include="$(FlutterEmbeddingPath)" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <FlutterEphemeral Include="flutter\ephemeral\**\*" />
+    <TizenTpkUserIncludeFiles Include="@(FlutterEphemeral)">
+      <TizenTpkSubDir>%(RecursiveDir)</TizenTpkSubDir>
+    </TizenTpkUserIncludeFiles>
+  </ItemGroup>
+
+</Project>
